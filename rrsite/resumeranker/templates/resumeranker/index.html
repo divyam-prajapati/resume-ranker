@@ -1,0 +1,62 @@
+{% extends "resumeranker/template.html" %}
+{% load static%}
+{% block head %}
+    <link rel="stylesheet" href="{% static '/resumeranker/styles.css' %}">
+{% endblock %}
+{% block content %}
+    <main class="rr-container">
+        <div>
+
+            <div class="rr-container_text">
+                <h1 class="rr-container_text-title">
+                    Resume Parser & Ranker
+                </h1>
+                <h3 class="rr-container_text-subtitle">
+                    Parsing using spaCy NER & TF-IDF Algorithm for Ranking  
+                </h3>
+            </div>
+            
+            <div>
+                <!-- FILES UPLOAD -->
+                <div class="rr-container_content {% if part == 'part1' %}active{% endif %}">
+                    <form method="POST" enctype="multipart/form-data" action="{% url 'resumeranker:uploads' %}">
+                        <div class="rr-container_content-upload">
+                            <label for="files">Drag & Drop all résumés here (Max. 20 résumés)</label>
+                            <input type="file" id="files" name="files" multiple accept=".pdf, .docx, .doc" required>
+                        </div>
+                        {% csrf_token %}    
+                        <input type="submit" value="Parse Résumés" class="btn-parse">
+                    </form>    
+                    
+                </div>
+                <!-- KEYWORDS SENDING -->
+                <div class="rr-container_content {% if part == 'part2' %}active{% endif %}">
+                    <form method="POST" enctype="multipart/form-data" action="{% url 'resumeranker:keywords' %}">
+                        <div class="rr-container_content-upload">
+                            <label for="keywords">Enter Keywords: </label>
+                            <input type="text" id="keywords" name="keywords" required placeholder="HTML, CSS, JS, NLP, python...">
+                        </div>
+                        {% csrf_token %}    
+                        <input type="submit" value="Rank Résumés" class="btn-parse">
+                    </form>
+                </div>
+                <div class="rr-container_content {% if part == 'part3' %}active{% endif %}">
+                    <div class="rr-container_content-upload">
+                        {% if rank %}
+                            {% for d in rank %}
+                                <p style="text-align: start;">{{d.id}} ------> {{d.name}}
+                                    <br>
+                                    {{d.designation}} || {{d.skills}} || {{d.Location}} 
+                                </p>
+                                <hr>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <a class="btn-parse" href="{% url 'resumeranker:reset' %}">Reset</a>
+                </div>
+            </div>
+
+        </div>
+        
+    </main>
+{% endblock %}
