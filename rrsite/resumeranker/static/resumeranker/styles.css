@@ -1,0 +1,89 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap');
+
+main, body {
+    background-color: rgba(0, 130, 200, 1);
+    font-family: "Nunito";
+}
+.rr-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin: 2rem 5rem;
+    padding: 2rem 4rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.rr-container_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.rr-container_text .rr-container_text-title {
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
+    font-weight: 900; 
+    color: #0082c8;
+}
+.rr-container_text .rr-container_text-subtitle {
+    margin: 1rem 0;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #0082c8; 
+}
+.rr-container_content {
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    background: #fff;
+    margin: 1rem 5rem;
+    padding: 0 3rem;
+    display: none !important;
+}
+.active {
+    display: flex !important; 
+}
+.rr-container_content-upload {
+    padding: 5rem 3rem;
+    margin: 1rem;
+    border-radius: 8px;
+    background: rgba(0, 130, 200, 0.16);
+    border: 2px dashed rgba(0, 130, 200, 1);
+}
+.rr-container_content-upload label {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #0082c8;
+    margin: 1rem 0;
+}
+.rr-container_content-upload input {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #0082c8;
+    margin: 1rem 0;
+}
+.rr-container_content .btn-parse {
+    margin: 1rem;
+    padding: 0.8rem 2rem;
+    color: #fff;
+    background-color: rgba(0, 130, 200, 1);
+    border: none;
+    box-shadow: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.rr-container_content .btn-parse:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 130, 200, 0.30);
+}
